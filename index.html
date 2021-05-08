@@ -2,13 +2,50 @@
 <html lang="ru" dir="ltr">
 <meta>
     <meta charset="utf-8">
-    <title>Untitled</title>
+    <title>PreviewGrabber - захват превью с Youtube</title>
+    <meta name="viewport"
+        content="initial-scale=1,width=device-width,height=device-height,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover,minimal-ui">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
 </meta>
 <body>
+    <header>
+        <h1>PreviewGrabber</h1>
+        <h2>Вставь идентификатор видео с Youtube - получи его превью</h2>
+    </header>
     <section>
-        <h1>Hello World))</h1>
-        <img src="https://img.youtube.com/vi/JMJXvsCLu6s/maxresdefault.jpg">
+        <article class="artl-top">
+            <input class="inputText" value="https://www.youtube.com/watch?v=JMJXvsCLu6s">
+            <button class="buttonGET" onclick="buttonGET ()">Получить</button>
+        </article>
+        <br>
+        <article class="artl-bottom">
+            <div class="divGTN">
+                <img src="https://img.youtube.com/vi/JMJXvsCLu6s/maxresdefault.jpg">
+                <br>
+                <a href="https://img.youtube.com/vi/JMJXvsCLu6s/maxresdefault.jpg" download><button>Скачать</button></a>
+            </div>
+        </article>
     </section>
+    <footer>
+        <p class="ftr-copyright">© Ильичёв Колян, 2021</p>
+        <p class="ftr-ver">ver. 0.1</p>
+    </footer>
+    <script>
+        let inputText = document.querySelector('.inputText').value;
+        let divGTN = document.querySelector('.divGTN');
+
+        function buttonGET (){
+            idYTB = youtube_parser(inputText);
+            srcIMG = "https://img.youtube.com/vi/" + idYTB + "/maxresdefault.jpg"; //https://img.youtube.com/vi/JMJXvsCLu6s/maxresdefault.jpg
+            divGTN.innerHTML = '<img src="' + srcIMG + '"><br><a href="' + srcIMG + '" download><button>Скачать</button></a>';
+        }
+
+        function youtube_parser(url) {
+            var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+            var match = url.match(regExp);
+            return (match && match[7].length == 11) ? match[7] : false;
+        }
+    </script>
 </body>
 </html>

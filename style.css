@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    padding: 25px;
+    min-width: 480px;
+    background-color: gray;
+}
+header h1 {
+    color: honeydew;
+    text-align: center;
+}
+header h2 {
+    color: honeydew;
+    text-align: center;
+}
+
+section {
+    min-width: 480px;
+}
+.artl-top {
+    padding: 30px;
+    padding-bottom: 0;
+    width: calc(100% - 60px);
+    overflow: hidden;
+}
+.inputText {
+    margin: 0 auto;
+    min-width: 350px;
+    width: calc(100% - 70px);
+    max-width: 750px;
+    height: 25px;
+}
+.buttonGET {
+    margin: 0 auto;
+    width: 64px;
+    height: 25px;
+}
+
+.artl-bottom {
+    padding: 30px;
+    width: calc(100% - 60px);
+    overflow: hidden;
+}
+
+footer {
+    padding: 30px;
+    margin-top: auto;
+    min-width: 480px;
+    background-color: #656565;
+}
+.ftr-copyright {
+    color: honeydew;
+    float: left;
+}
+.ftr-ver {
+    color: honeydew;
+    float: right;
+}
